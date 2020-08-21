@@ -4,13 +4,50 @@
   
     
     <entry>
-      <title>Hello World</title>
-      <link href="/2020/08/18/hello-world/"/>
-      <url>/2020/08/18/hello-world/</url>
+      <title>剑指 Offer 06.旋转数组的最小数字</title>
+      <link href="/2020/08/21/jian-zhi-offer-06-xuan-zhuan-shu-zu-de-zui-xiao-shu-zi/"/>
+      <url>/2020/08/21/jian-zhi-offer-06-xuan-zhuan-shu-zu-de-zui-xiao-shu-zi/</url>
       
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+        <content type="html"><![CDATA[<h3 id="剑指-Offer-06-旋转数组的最小数字"><a href="#剑指-Offer-06-旋转数组的最小数字" class="headerlink" title="剑指 Offer 06.旋转数组的最小数字"></a><a href="https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/">剑指 Offer 06.旋转数组的最小数字</a></h3><ul><li><p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如，数组 [3,4,5,1,2] 为 [1,2,3,4,5] 的一个旋转，该数组的最小值为1。  </p><ul><li>示例 1：</li></ul><pre><code>输入：[3,4,5,1,2]输出：1</code></pre><ul><li>示例 2：</li></ul><pre><code>输入：[2,2,2,0,1]输出：0</code></pre></li></ul><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><ul><li>如果nums[i] != i，位置i处放得不是数字i，则利用swap()交换的方法将i换到nums[i]。</li><li>但如果位置nums[i]上已经等于nums[i]，则nums[i]就是重复数字。</li><li>如果nums[i]位置上第一次等于i，跳过。</li></ul><h4 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h4><ul><li><p>时间复杂度</p><ul><li>O(n)</li></ul></li><li><p>空间复杂度</p><ul><li>O(1)</li></ul></li></ul>]]></content>
       
       
+      <categories>
+          
+          <category> 剑指Offer </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Search Algorithm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>剑指Offer 01.数组中的重复数字</title>
+      <link href="/2020/08/21/jian-zhi-offer-01-shu-zu-zhong-de-chong-fu-shu-zi/"/>
+      <url>/2020/08/21/jian-zhi-offer-01-shu-zu-zhong-de-chong-fu-shu-zi/</url>
+      
+        <content type="html"><![CDATA[<h3 id="剑指-Offer-01-数组中重复的数字"><a href="#剑指-Offer-01-数组中重复的数字" class="headerlink" title="剑指 Offer 01. 数组中重复的数字"></a><a href="https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/">剑指 Offer 01. 数组中重复的数字</a></h3><ul><li><p>找出数组中重复的数字。</p><ul><li>在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。</li><li><strong>示例 1：</strong></li></ul><pre><code>输入：[2, 3, 1, 0, 2, 5, 3]输出：2 或 3 </code></pre><ul><li><strong>限制：</strong></li></ul><pre><code>2 &lt;= n &lt;= 100000</code></pre></li></ul><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><ul><li>如果nums[i] != i，位置i处放得不是数字i，则利用swap()交换的方法将i换到nums[i]。</li><li>但如果位置nums[i]上已经等于nums[i]，则nums[i]就是重复数字。</li><li>如果nums[i]位置上第一次等于i，跳过。</li></ul><h4 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h4><ul><li><p>时间复杂度</p><ul><li>O(n)</li></ul></li><li><p>空间复杂度</p><ul><li>O(1)</li></ul></li></ul><pre class=" language-c++"><code class="language-c++">class Solution &#123;public:    int findRepeatNumber(vector<int>& nums) &#123;        for(int i=0; i < nums.size(); i++) &#123;            if (nums[i]==i) continue;            if (nums[nums[i]] == nums[i]) return nums[i];            swap(nums[i],nums[nums[i]]);        &#125;        return 0;    &#125;&#125;;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 剑指Offer </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Search Algorithm </tag>
+            
+        </tags>
       
     </entry>
     
