@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>剑指 Offer 53 - I. 在排序数组中查找数字 I</title>
+      <link href="/2020/08/24/jian-zhi-offer-53-i-zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-i/"/>
+      <url>/2020/08/24/jian-zhi-offer-53-i-zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-i/</url>
+      
+        <content type="html"><![CDATA[<h4 id="剑指-Offer-53-I-在排序数组中查找数字-I"><a href="#剑指-Offer-53-I-在排序数组中查找数字-I" class="headerlink" title="剑指 Offer 53 - I. 在排序数组中查找数字 I"></a><a href="https://leetcode-cn.com/problems/zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-lcof/">剑指 Offer 53 - I. 在排序数组中查找数字 I</a></h4><p>统计一个数字在排序数组中出现的次数。</p><ul><li><p>示例 1:</p><pre><code>- 输入: nums = [5,7,7,8,8,10], target = 8  输出: 2</code></pre></li><li><p>示例 2:</p><pre><code>输入: nums = [5,7,7,8,8,10], target = 6输出: 0</code></pre></li><li><p>限制：</p><pre><code>0 &lt;= 数组长度 &lt;= 50000</code></pre></li></ul><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><ul><li>有序数组首选二分查找</li><li>因为要统计次数，所以要考虑target重复</li><li>首先二分查找到target，再以target为中心，左右统计相同的个数</li></ul><h4 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h4><ul><li><p>时间复杂度</p><ul><li>O(logn)</li></ul></li><li><p>空间复杂度</p><ul><li>O(1)</li></ul></li></ul><pre class=" language-C++"><code class="language-C++">class Solution &#123;public:    int search(vector<int>& nums, int target) &#123;        int start = 0;        int end = nums.size() - 1;        int p = -1;        while (start <= end) &#123;            int mid = start + (end - start) / 2;    //不写(start+end)/ 2是为了防止数字过大带来加法益处            if (nums[mid] == target) &#123;                p = mid;                break;            &#125; else if (nums[mid] > target) end = mid - 1;            else start = mid + 1;        &#125;        if (p == -1) return 0;        int low = p;        int high = p;        while ( low >= 0 && nums[low] == target) low-=1;    //此处如果写成(nums[low] == target &&  low >= 0) 会报越界，下一行同理        while ( high < nums.size() && nums[high] == target) high+=1;        return high - low -1;    &#125;&#125;;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 剑指Offer </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Search Algorithm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>剑指 Offer 11.旋转数组的最小数字</title>
       <link href="/2020/08/21/jian-zhi-offer-11-xuan-zhuan-shu-zu-de-zui-xiao-shu-zi/"/>
       <url>/2020/08/21/jian-zhi-offer-11-xuan-zhuan-shu-zu-de-zui-xiao-shu-zi/</url>

@@ -6,7 +6,7 @@
   <link href="http://daemonfg.github.io/atom.xml" rel="self"/>
   
   <link href="http://daemonfg.github.io/"/>
-  <updated>2020-08-24T02:35:03.406Z</updated>
+  <updated>2020-08-24T02:49:49.835Z</updated>
   <id>http://daemonfg.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>剑指 Offer 53 - I. 在排序数组中查找数字 I</title>
+    <link href="http://daemonfg.github.io/2020/08/24/jian-zhi-offer-53-i-zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-i/"/>
+    <id>http://daemonfg.github.io/2020/08/24/jian-zhi-offer-53-i-zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-i/</id>
+    <published>2020-08-24T02:33:02.000Z</published>
+    <updated>2020-08-24T02:49:49.835Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;剑指-Offer-53-I-在排序数组中查找数字-I&quot;&gt;&lt;a href=&quot;#剑指-Offer-53-I-在排序数组中查找数字-I&quot; class=&quot;headerlink&quot; title=&quot;剑指 Offer 53 - I. 在排序数组中查找数字 I&quot;&gt;&lt;/a&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="剑指Offer" scheme="http://daemonfg.github.io/categories/%E5%89%91%E6%8C%87Offer/"/>
+    
+    
+    <category term="Search Algorithm" scheme="http://daemonfg.github.io/tags/Search-Algorithm/"/>
+    
+  </entry>
   
   <entry>
     <title>剑指 Offer 11.旋转数组的最小数字</title>
