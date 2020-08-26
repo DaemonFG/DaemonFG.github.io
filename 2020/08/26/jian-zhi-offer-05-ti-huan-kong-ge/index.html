@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="剑指Offer 03.数组中的重复数字, Fang-tung Keng">
+    <meta name="keywords" content="剑指 Offer 05. 替换空格, Fang-tung Keng">
     <meta name="description" content="Algorithms | Photography | Self-Management">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>剑指Offer 03.数组中的重复数字 | Fang-tung Keng</title>
+    <title>剑指 Offer 05. 替换空格 | Fang-tung Keng</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -287,12 +287,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">剑指Offer 03.数组中的重复数字</h1>
+                    <h1 class="description center-align post-title">剑指 Offer 05. 替换空格</h1>
                 </div>
             </div>
         </div>
@@ -409,8 +409,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Search-Algorithm/">
-                                <span class="chip bg-color">Search Algorithm</span>
+                            <a href="/tags/String/">
+                                <span class="chip bg-color">String</span>
                             </a>
                         
                     </div>
@@ -434,7 +434,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-08-21
+                    2020-08-26
                 </div>
                 
 
@@ -443,7 +443,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    251
+                    202
                 </div>
                 
 
@@ -465,47 +465,47 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="剑指-Offer-03-数组中重复的数字"><a href="#剑指-Offer-03-数组中重复的数字" class="headerlink" title="剑指 Offer 03. 数组中重复的数字"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/">剑指 Offer 03. 数组中重复的数字</a></h3><ul>
-<li><p>找出数组中重复的数字。</p>
+                <h3 id="剑指-Offer-05-替换空格"><a href="#剑指-Offer-05-替换空格" class="headerlink" title="剑指 Offer 05. 替换空格"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof/">剑指 Offer 05. 替换空格</a></h3><p>请实现一个函数，把字符串 s 中的每个空格替换成”%20”。</p>
 <ul>
-<li>在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。</li>
-<li><strong>示例 1：</strong></li>
-</ul>
-<pre><code>输入：
-[2, 3, 1, 0, 2, 5, 3]
-输出：2 或 3 </code></pre>
-<ul>
-<li><strong>限制：</strong></li>
-</ul>
-<pre><code>2 &lt;= n &lt;= 100000</code></pre>
+<li><p>示例</p>
+<pre><code>输入：s = &quot;We are happy.&quot;
+输出：&quot;We%20are%20happy.&quot;</code></pre>
+</li>
+<li><p>限制：</p>
+<pre><code>0 &lt;= s 的长度 &lt;= 10000</code></pre>
 </li>
 </ul>
 <h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><ul>
-<li>如果nums[i] != i，位置i处放得不是数字i，则利用swap()交换的方法将i换到nums[i]。</li>
-<li>但如果位置nums[i]上已经等于nums[i]，则nums[i]就是重复数字。</li>
-<li>如果nums[i]位置上第一次等于i，跳过。</li>
+<li>统计空格数count</li>
+<li>用resize对字符串进行扩容</li>
+<li>c从后往前，双指针查找位置，并替换</li>
 </ul>
-<h4 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h4><ul>
-<li><p>时间复杂度</p>
-<ul>
+<h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><h5 id="Time-Complexity-Big-O-notation"><a href="#Time-Complexity-Big-O-notation" class="headerlink" title="Time Complexity (Big O notation)"></a>Time Complexity (Big O notation)</h5><ul>
 <li>O(n)</li>
 </ul>
-</li>
-<li><p>空间复杂度</p>
-<ul>
+<h5 id="Space-Complexity-Big-O-notation"><a href="#Space-Complexity-Big-O-notation" class="headerlink" title="Space Complexity (Big O notation)"></a>Space Complexity (Big O notation)</h5><ul>
 <li>O(1)</li>
 </ul>
-</li>
-</ul>
-<pre class=" language-c++"><code class="language-c++">class Solution &#123;
+<h5 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h5><pre class=" language-C++"><code class="language-C++">class Solution &#123;
 public:
-    int findRepeatNumber(vector<int>& nums) &#123;
-        for(int i=0; i < nums.size(); i++) &#123;
-            if (nums[i]==i) continue;
-            if (nums[nums[i]] == nums[i]) return nums[i];
-            swap(nums[i],nums[nums[i]]);
+    string replaceSpace(string s) &#123;
+        int count = 0;    
+        int oldSize = s.size();
+        for (int i = 0; i < oldSize; i++) &#123;
+            if (s[i] == ' ') count++;    //统计空格数量
         &#125;
-        return 0;
+        s.resize(s.size() + count * 2);        //字符串扩容
+        int newSize = s.size();
+        for (int i = oldSize - 1, j = newSize - 1;i < j;i--,j--) &#123;
+            if (s[i] != ' ') s[j] = s[i];    //旧位置移到新位置
+            else &#123;
+                s[j] = '0';
+                s[j-1] =  '2';
+                s[j-2] = '%';
+                j -= 2;        //*
+            &#125;
+        &#125;
+        return s;
     &#125;
 &#125;;</code></pre>
 
@@ -533,7 +533,7 @@ public:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://daemonfg.github.io/2020/08/21/jian-zhi-offer-03-shu-zu-zhong-de-chong-fu-shu-zi/">http://daemonfg.github.io/2020/08/21/jian-zhi-offer-03-shu-zu-zhong-de-chong-fu-shu-zi/</a>
+                    <a href="http://daemonfg.github.io/2020/08/26/jian-zhi-offer-05-ti-huan-kong-ge/">http://daemonfg.github.io/2020/08/26/jian-zhi-offer-05-ti-huan-kong-ge/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -571,8 +571,8 @@ public:
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Search-Algorithm/">
-                                    <span class="chip bg-color">Search Algorithm</span>
+                                <a href="/tags/String/">
+                                    <span class="chip bg-color">String</span>
                                 </a>
                             
                         </div>
@@ -877,81 +877,35 @@ public:
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2020/08/21/jian-zhi-offer-11-xuan-zhuan-shu-zu-de-zui-xiao-shu-zi/">
+                <a href="/2020/08/26/jian-zhi-offer-05-ti-huan-kong-ge/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="剑指 Offer 11.旋转数组的最小数字">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="剑指 Offer 05. 替换空格">
                         
-                        <span class="card-title">剑指 Offer 11.旋转数组的最小数字</span>
+                        <span class="card-title">剑指 Offer 05. 替换空格</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            剑指 Offer 11.旋转数组的最小数字
-把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如，数组 [3,4,5,1,2] 为 [1,2,3,4,5] 的一个旋
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-21
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%89%91%E6%8C%87Offer/" class="post-category">
-                                    剑指Offer
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Search-Algorithm/">
-                        <span class="chip bg-color">Search Algorithm</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/08/21/jian-zhi-offer-03-shu-zu-zhong-de-chong-fu-shu-zi/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="剑指Offer 03.数组中的重复数字">
-                        
-                        <span class="card-title">剑指Offer 03.数组中的重复数字</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            剑指 Offer 03. 数组中重复的数字
-找出数组中重复的数字。
+                            剑指 Offer 05. 替换空格请实现一个函数，把字符串 s 中的每个空格替换成”%20”。
 
-在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意
+示例
+输入：s = &quot;We are happy.&quot;
+输出：&quot;We%20are%20happy.&quot;
+
+限
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-26
                             </span>
                         <span class="publish-author">
                             
@@ -966,6 +920,58 @@ public:
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/String/">
+                        <span class="chip bg-color">String</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/08/24/jian-zhi-offer-53-ii-0-n-1-zhong-que-shi-de-shu-zi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="剑指 Offer 53 - II. 0～n-1中缺失的数字">
+                        
+                        <span class="card-title">剑指 Offer 53 - II. 0～n-1中缺失的数字</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            剑指 Offer 53 - II. 0～n-1中缺失的数字一个长度为n-1的递增排序数组中的所有数字都是唯一的，并且每个数字都在范围0～n-1之内。在范围0～n-1内的n个数字中有且只有一个数字不在该数组中，请找出这个数字。
+
+示例1
+输入
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%91%E6%8C%87Offer/" class="post-category">
+                                    剑指Offer
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
                 
                 <div class="card-action article-tags">
                     

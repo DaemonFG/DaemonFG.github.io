@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>剑指 Offer 05. 替换空格</title>
+      <link href="/2020/08/26/jian-zhi-offer-05-ti-huan-kong-ge/"/>
+      <url>/2020/08/26/jian-zhi-offer-05-ti-huan-kong-ge/</url>
+      
+        <content type="html"><![CDATA[<h3 id="剑指-Offer-05-替换空格"><a href="#剑指-Offer-05-替换空格" class="headerlink" title="剑指 Offer 05. 替换空格"></a><a href="https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof/">剑指 Offer 05. 替换空格</a></h3><p>请实现一个函数，把字符串 s 中的每个空格替换成”%20”。</p><ul><li><p>示例</p><pre><code>输入：s = &quot;We are happy.&quot;输出：&quot;We%20are%20happy.&quot;</code></pre></li><li><p>限制：</p><pre><code>0 &lt;= s 的长度 &lt;= 10000</code></pre></li></ul><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><ul><li>统计空格数count</li><li>用resize对字符串进行扩容</li><li>c从后往前，双指针查找位置，并替换</li></ul><h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><h5 id="Time-Complexity-Big-O-notation"><a href="#Time-Complexity-Big-O-notation" class="headerlink" title="Time Complexity (Big O notation)"></a>Time Complexity (Big O notation)</h5><ul><li>O(n)</li></ul><h5 id="Space-Complexity-Big-O-notation"><a href="#Space-Complexity-Big-O-notation" class="headerlink" title="Space Complexity (Big O notation)"></a>Space Complexity (Big O notation)</h5><ul><li>O(1)</li></ul><h5 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h5><pre class=" language-C++"><code class="language-C++">class Solution &#123;public:    string replaceSpace(string s) &#123;        int count = 0;            int oldSize = s.size();        for (int i = 0; i < oldSize; i++) &#123;            if (s[i] == ' ') count++;    //统计空格数量        &#125;        s.resize(s.size() + count * 2);        //字符串扩容        int newSize = s.size();        for (int i = oldSize - 1, j = newSize - 1;i < j;i--,j--) &#123;            if (s[i] != ' ') s[j] = s[i];    //旧位置移到新位置            else &#123;                s[j] = '0';                s[j-1] =  '2';                s[j-2] = '%';                j -= 2;        //*            &#125;        &#125;        return s;    &#125;&#125;;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 剑指Offer </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> String </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>剑指 Offer 53 - II. 0～n-1中缺失的数字</title>
       <link href="/2020/08/24/jian-zhi-offer-53-ii-0-n-1-zhong-que-shi-de-shu-zi/"/>
       <url>/2020/08/24/jian-zhi-offer-53-ii-0-n-1-zhong-que-shi-de-shu-zi/</url>
