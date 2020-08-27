@@ -6,7 +6,7 @@
   <link href="http://daemonfg.github.io/atom.xml" rel="self"/>
   
   <link href="http://daemonfg.github.io/"/>
-  <updated>2020-08-26T02:15:06.059Z</updated>
+  <updated>2020-08-27T06:45:24.685Z</updated>
   <id>http://daemonfg.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>剑指 Offer 21. 调整数组顺序使奇数位于偶数前面</title>
+    <link href="http://daemonfg.github.io/2020/08/27/jian-zhi-offer-21-diao-zheng-shu-zu-shun-xu-shi-qi-shu-wei-yu-ou-shu-qian-mian/"/>
+    <id>http://daemonfg.github.io/2020/08/27/jian-zhi-offer-21-diao-zheng-shu-zu-shun-xu-shi-qi-shu-wei-yu-ou-shu-qian-mian/</id>
+    <published>2020-08-27T06:14:48.000Z</published>
+    <updated>2020-08-27T06:45:24.685Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;剑指-Offer-21-调整数组顺序使奇数位于偶数前面&quot;&gt;&lt;a href=&quot;#剑指-Offer-21-调整数组顺序使奇数位于偶数前面&quot; class=&quot;headerlink&quot; title=&quot;剑指 Offer 21. 调整数组顺序使奇数位于偶数前面&quot;&gt;&lt;/a&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="剑指Offer" scheme="http://daemonfg.github.io/categories/%E5%89%91%E6%8C%87Offer/"/>
+    
+    
+    <category term="对撞指针" scheme="http://daemonfg.github.io/tags/%E5%AF%B9%E6%92%9E%E6%8C%87%E9%92%88/"/>
+    
+  </entry>
   
   <entry>
     <title>剑指 Offer 05. 替换空格</title>

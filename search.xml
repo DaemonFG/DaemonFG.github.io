@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>剑指 Offer 21. 调整数组顺序使奇数位于偶数前面</title>
+      <link href="/2020/08/27/jian-zhi-offer-21-diao-zheng-shu-zu-shun-xu-shi-qi-shu-wei-yu-ou-shu-qian-mian/"/>
+      <url>/2020/08/27/jian-zhi-offer-21-diao-zheng-shu-zu-shun-xu-shi-qi-shu-wei-yu-ou-shu-qian-mian/</url>
+      
+        <content type="html"><![CDATA[<h3 id="剑指-Offer-21-调整数组顺序使奇数位于偶数前面"><a href="#剑指-Offer-21-调整数组顺序使奇数位于偶数前面" class="headerlink" title="剑指 Offer 21. 调整数组顺序使奇数位于偶数前面"></a><a href="https://leetcode-cn.com/problems/diao-zheng-shu-zu-shun-xu-shi-qi-shu-wei-yu-ou-shu-qian-mian-lcof/">剑指 Offer 21. 调整数组顺序使奇数位于偶数前面</a></h3><p>输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数位于数组的前半部分，所有偶数位于数组的后半部分。</p><ul><li><p>示例：</p><pre><code>输入：nums = [1,2,3,4]输出：[1,3,2,4] 注：[3,1,2,4] 也是正确的答案之一。</code></pre></li><li><p>提示：</p><pre><code>1 &lt;= nums.length &lt;= 500001 &lt;= nums[i] &lt;= 10000</code></pre></li></ul><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><ol><li>对撞指针left控制奇数，right控制偶数</li><li>如果nums[left]是奇数，left右移</li><li>同理right左移</li><li>否则交换nums[left]和nums[right]</li></ol><h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><h5 id="Time-Complexity"><a href="#Time-Complexity" class="headerlink" title="Time Complexity"></a>Time Complexity</h5><ul><li>$O(N)$</li></ul><h5 id="Space-Complexity"><a href="#Space-Complexity" class="headerlink" title="Space Complexity"></a>Space Complexity</h5><ul><li>$O(1)$</li></ul><h5 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h5><pre class=" language-C++"><code class="language-C++">class Solution &#123;public:    vector<int> exchange(vector<int>& nums) &#123;        int left = 0, right = nums.size() - 1;        while (left < right) &#123;            if ((nums[left] & 1) != 0) &#123;    //奇数的二进制数的最后一位永远是 1，与 1 按位且只会得到 1，偶数相反                left+=1;                 continue;                &#125;            if ((nums[right] & 1) != 1) &#123;                right-=1;                 continue;                &#125;            swap(nums[left++], nums[right--]);    //先使用再++        &#125;        return nums;    &#125;&#125;;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 剑指Offer </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 对撞指针 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>剑指 Offer 05. 替换空格</title>
       <link href="/2020/08/26/jian-zhi-offer-05-ti-huan-kong-ge/"/>
       <url>/2020/08/26/jian-zhi-offer-05-ti-huan-kong-ge/</url>
