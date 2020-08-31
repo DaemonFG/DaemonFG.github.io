@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>剑指 Offer 39. 数组中出现次数超过一半的数字</title>
+      <link href="/2020/08/31/jian-zhi-offer-39-shu-zu-zhong-chu-xian-ci-shu-chao-guo-yi-ban-de-shu-zi/"/>
+      <url>/2020/08/31/jian-zhi-offer-39-shu-zu-zhong-chu-xian-ci-shu-chao-guo-yi-ban-de-shu-zi/</url>
+      
+        <content type="html"><![CDATA[<h3 id="剑指-Offer-39-数组中出现次数超过一半的数字"><a href="#剑指-Offer-39-数组中出现次数超过一半的数字" class="headerlink" title="剑指 Offer 39. 数组中出现次数超过一半的数字"></a><a href="https://leetcode-cn.com/problems/shu-zu-zhong-chu-xian-ci-shu-chao-guo-yi-ban-de-shu-zi-lcof/">剑指 Offer 39. 数组中出现次数超过一半的数字</a></h3><p>数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。</p><p> 你可以假设数组是非空的，并且给定的数组总是存在多数元素。</p><ul><li><p>示例</p><pre><code>输入: [1, 2, 3, 2, 2, 2, 5, 4, 2]输出: 2</code></pre></li><li><p>限制</p><pre><code>1 &lt;= 数组长度 &lt;= 50000</code></pre></li></ul><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><ul><li>方法一<ul><li>排序以后取中间的值</li></ul></li><li>方法二<ul><li>哈希表</li></ul></li><li>方法三<ul><li><a href="https://mp.weixin.qq.com/s?__biz=MjM5NjIyMjQ4Nw==&mid=2247483952&idx=1&sn=7099f8d70221c6854298f2c9ffdcc6eb&chksm=a6edc148919a485e700e85af33b83202fec8fa63bb7a2a932dc8e1375efc788c1954e2f66eb1&mpshare=1&scene=1&srcid=0831OmJKjFI4YyjOB0la7Hln&sharer_sharetime=1598850806960&sharer_shareid=5ab53476a7cb89b2d672acc6f12336c2&exportkey=AxLjiFaYkfiwL7MBCIbVXb0=&pass_ticket=aDyoYaRZ4qOEcaTU+m0iEWOFMo1gSehqyi9Wl22ykuLufVdquAp/ucVDc9dhevm5&wx_header=0#rd">摩尔投票法</a>求众数<ol><li>对抗阶段：分属两个候选人的票数进行两两对抗抵消</li><li>计数阶段：计算对抗结果中最后留下的候选人票数是否有效</li></ol></li></ul></li></ul><h3 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h3><h4 id="Time-Complexity-Big-O-Notation"><a href="#Time-Complexity-Big-O-Notation" class="headerlink" title="Time Complexity $(Big O Notation)$"></a>Time Complexity $(Big O Notation)$</h4><ul><li>$O(n)$</li></ul><h4 id="Space-Complexity-Big-O-Notation"><a href="#Space-Complexity-Big-O-Notation" class="headerlink" title="Space Complexity $(Big O Notation)$"></a>Space Complexity $(Big O Notation)$</h4><ul><li>$O(1)$</li></ul><h4 id="Code-Boyer–Moore-majority-vote-algorithm"><a href="#Code-Boyer–Moore-majority-vote-algorithm" class="headerlink" title="Code Boyer–Moore majority vote algorithm"></a>Code <code>Boyer–Moore majority vote algorithm</code></h4><pre class=" language-C++"><code class="language-C++">class Solution &#123;public:    int majorityElement(vector<int>& nums) &#123;        int target = 0, count = 0;        for (auto num: nums) &#123;    //类似于python的for num in nums:            if (count == 0) target = num;    //重新指定候选人            if (target == num) count++;            else count--;        &#125;    return target;    &#125;&#125;;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 剑指Offer </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Boyer–Moore majority vote algorithm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>剑指 Offer 21. 调整数组顺序使奇数位于偶数前面</title>
       <link href="/2020/08/27/jian-zhi-offer-21-diao-zheng-shu-zu-shun-xu-shi-qi-shu-wei-yu-ou-shu-qian-mian/"/>
       <url>/2020/08/27/jian-zhi-offer-21-diao-zheng-shu-zu-shun-xu-shi-qi-shu-wei-yu-ou-shu-qian-mian/</url>
