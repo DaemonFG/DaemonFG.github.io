@@ -6,7 +6,7 @@
   <link href="http://daemonfg.github.io/atom.xml" rel="self"/>
   
   <link href="http://daemonfg.github.io/"/>
-  <updated>2020-08-31T05:46:59.664Z</updated>
+  <updated>2020-09-28T08:51:10.148Z</updated>
   <id>http://daemonfg.github.io/</id>
   
   <author>
@@ -17,43 +17,18 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>剑指 Offer 39. 数组中出现次数超过一半的数字</title>
-    <link href="http://daemonfg.github.io/2020/08/31/jian-zhi-offer-39-shu-zu-zhong-chu-xian-ci-shu-chao-guo-yi-ban-de-shu-zi/"/>
-    <id>http://daemonfg.github.io/2020/08/31/jian-zhi-offer-39-shu-zu-zhong-chu-xian-ci-shu-chao-guo-yi-ban-de-shu-zi/</id>
-    <published>2020-08-31T05:30:51.000Z</published>
-    <updated>2020-08-31T05:46:59.664Z</updated>
+    <title>剑指Offer题解大全</title>
+    <link href="http://daemonfg.github.io/2020/09/28/jian-zhi-offer-ti-jie-da-quan/"/>
+    <id>http://daemonfg.github.io/2020/09/28/jian-zhi-offer-ti-jie-da-quan/</id>
+    <published>2020-09-28T08:46:49.000Z</published>
+    <updated>2020-09-28T08:51:10.148Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;剑指-Offer-39-数组中出现次数超过一半的数字&quot;&gt;&lt;a href=&quot;#剑指-Offer-39-数组中出现次数超过一半的数字&quot; class=&quot;headerlink&quot; title=&quot;剑指 Offer 39. 数组中出现次数超过一半的数字&quot;&gt;&lt;/a&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="剑指Offer" scheme="http://daemonfg.github.io/categories/%E5%89%91%E6%8C%87Offer/"/>
-    
-    
-    <category term="Boyer–Moore majority vote algorithm" scheme="http://daemonfg.github.io/tags/Boyer%E2%80%93Moore-majority-vote-algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指 Offer 21. 调整数组顺序使奇数位于偶数前面</title>
-    <link href="http://daemonfg.github.io/2020/08/27/jian-zhi-offer-21-diao-zheng-shu-zu-shun-xu-shi-qi-shu-wei-yu-ou-shu-qian-mian/"/>
-    <id>http://daemonfg.github.io/2020/08/27/jian-zhi-offer-21-diao-zheng-shu-zu-shun-xu-shi-qi-shu-wei-yu-ou-shu-qian-mian/</id>
-    <published>2020-08-27T06:14:48.000Z</published>
-    <updated>2020-08-27T06:45:24.685Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;剑指-Offer-21-调整数组顺序使奇数位于偶数前面&quot;&gt;&lt;a href=&quot;#剑指-Offer-21-调整数组顺序使奇数位于偶数前面&quot; class=&quot;headerlink&quot; title=&quot;剑指 Offer 21. 调整数组顺序使奇数位于偶数前面&quot;&gt;&lt;/a&gt;&lt;a</summary>
+    <summary type="html">&lt;h1 id=&quot;剑指Offer题解大全&quot;&gt;&lt;a href=&quot;#剑指Offer题解大全&quot; class=&quot;headerlink&quot; title=&quot;剑指Offer题解大全&quot;&gt;&lt;/a&gt;剑指Offer题解大全&lt;/h1&gt;&lt;h2 id=&quot;数据结构类&quot;&gt;&lt;a href=&quot;#数据结构类&quot;</summary>
         
       
     
@@ -62,132 +37,7 @@
     <category term="剑指Offer" scheme="http://daemonfg.github.io/categories/%E5%89%91%E6%8C%87Offer/"/>
     
     
-    <category term="对撞指针" scheme="http://daemonfg.github.io/tags/%E5%AF%B9%E6%92%9E%E6%8C%87%E9%92%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指 Offer 05. 替换空格</title>
-    <link href="http://daemonfg.github.io/2020/08/26/jian-zhi-offer-05-ti-huan-kong-ge/"/>
-    <id>http://daemonfg.github.io/2020/08/26/jian-zhi-offer-05-ti-huan-kong-ge/</id>
-    <published>2020-08-26T01:53:13.000Z</published>
-    <updated>2020-08-26T02:15:06.059Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;剑指-Offer-05-替换空格&quot;&gt;&lt;a href=&quot;#剑指-Offer-05-替换空格&quot; class=&quot;headerlink&quot; title=&quot;剑指 Offer 05. 替换空格&quot;&gt;&lt;/a&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="剑指Offer" scheme="http://daemonfg.github.io/categories/%E5%89%91%E6%8C%87Offer/"/>
-    
-    
-    <category term="String" scheme="http://daemonfg.github.io/tags/String/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指 Offer 53 - II. 0～n-1中缺失的数字</title>
-    <link href="http://daemonfg.github.io/2020/08/24/jian-zhi-offer-53-ii-0-n-1-zhong-que-shi-de-shu-zi/"/>
-    <id>http://daemonfg.github.io/2020/08/24/jian-zhi-offer-53-ii-0-n-1-zhong-que-shi-de-shu-zi/</id>
-    <published>2020-08-24T03:17:38.000Z</published>
-    <updated>2020-08-24T06:41:45.950Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;剑指-Offer-53-II-0～n-1中缺失的数字&quot;&gt;&lt;a href=&quot;#剑指-Offer-53-II-0～n-1中缺失的数字&quot; class=&quot;headerlink&quot; title=&quot;剑指 Offer 53 - II. 0～n-1中缺失的数字&quot;&gt;&lt;/a&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="剑指Offer" scheme="http://daemonfg.github.io/categories/%E5%89%91%E6%8C%87Offer/"/>
-    
-    
-    <category term="Search Algorithm" scheme="http://daemonfg.github.io/tags/Search-Algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指 Offer 53 - I. 在排序数组中查找数字 I</title>
-    <link href="http://daemonfg.github.io/2020/08/24/jian-zhi-offer-53-i-zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-i/"/>
-    <id>http://daemonfg.github.io/2020/08/24/jian-zhi-offer-53-i-zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-i/</id>
-    <published>2020-08-24T02:33:02.000Z</published>
-    <updated>2020-08-24T02:49:49.835Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;剑指-Offer-53-I-在排序数组中查找数字-I&quot;&gt;&lt;a href=&quot;#剑指-Offer-53-I-在排序数组中查找数字-I&quot; class=&quot;headerlink&quot; title=&quot;剑指 Offer 53 - I. 在排序数组中查找数字 I&quot;&gt;&lt;/a&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="剑指Offer" scheme="http://daemonfg.github.io/categories/%E5%89%91%E6%8C%87Offer/"/>
-    
-    
-    <category term="Search Algorithm" scheme="http://daemonfg.github.io/tags/Search-Algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指 Offer 11.旋转数组的最小数字</title>
-    <link href="http://daemonfg.github.io/2020/08/21/jian-zhi-offer-11-xuan-zhuan-shu-zu-de-zui-xiao-shu-zi/"/>
-    <id>http://daemonfg.github.io/2020/08/21/jian-zhi-offer-11-xuan-zhuan-shu-zu-de-zui-xiao-shu-zi/</id>
-    <published>2020-08-21T08:32:01.000Z</published>
-    <updated>2020-08-24T02:35:03.406Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;剑指-Offer-11-旋转数组的最小数字&quot;&gt;&lt;a href=&quot;#剑指-Offer-11-旋转数组的最小数字&quot; class=&quot;headerlink&quot; title=&quot;剑指 Offer 11.旋转数组的最小数字&quot;&gt;&lt;/a&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="剑指Offer" scheme="http://daemonfg.github.io/categories/%E5%89%91%E6%8C%87Offer/"/>
-    
-    
-    <category term="Search Algorithm" scheme="http://daemonfg.github.io/tags/Search-Algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指Offer 03.数组中的重复数字</title>
-    <link href="http://daemonfg.github.io/2020/08/21/jian-zhi-offer-03-shu-zu-zhong-de-chong-fu-shu-zi/"/>
-    <id>http://daemonfg.github.io/2020/08/21/jian-zhi-offer-03-shu-zu-zhong-de-chong-fu-shu-zi/</id>
-    <published>2020-08-21T08:06:53.000Z</published>
-    <updated>2020-08-26T02:10:54.982Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;剑指-Offer-03-数组中重复的数字&quot;&gt;&lt;a href=&quot;#剑指-Offer-03-数组中重复的数字&quot; class=&quot;headerlink&quot; title=&quot;剑指 Offer 03. 数组中重复的数字&quot;&gt;&lt;/a&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="剑指Offer" scheme="http://daemonfg.github.io/categories/%E5%89%91%E6%8C%87Offer/"/>
-    
-    
-    <category term="Search Algorithm" scheme="http://daemonfg.github.io/tags/Search-Algorithm/"/>
+    <category term="刷题" scheme="http://daemonfg.github.io/tags/%E5%88%B7%E9%A2%98/"/>
     
   </entry>
   

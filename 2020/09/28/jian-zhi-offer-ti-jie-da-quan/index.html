@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="剑指 Offer 11.旋转数组的最小数字, Fang-tung Keng">
+    <meta name="keywords" content="剑指Offer题解大全, Fang-tung Keng">
     <meta name="description" content="Algorithms | Photography | Self-Management">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>剑指 Offer 11.旋转数组的最小数字 | Fang-tung Keng</title>
+    <title>剑指Offer题解大全 | Fang-tung Keng</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">剑指 Offer 11.旋转数组的最小数字</h1>
+                    <h1 class="description center-align post-title">剑指Offer题解大全</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Search-Algorithm/">
-                                <span class="chip bg-color">Search Algorithm</span>
+                            <a href="/tags/%E5%88%B7%E9%A2%98/">
+                                <span class="chip bg-color">刷题</span>
                             </a>
                         
                     </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-08-21
+                    2020-09-28
                 </div>
                 
 
@@ -465,7 +465,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    361
+                    26
                 </div>
                 
 
@@ -487,59 +487,9 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="剑指-Offer-11-旋转数组的最小数字"><a href="#剑指-Offer-11-旋转数组的最小数字" class="headerlink" title="剑指 Offer 11.旋转数组的最小数字"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/">剑指 Offer 11.旋转数组的最小数字</a></h3><ul>
-<li><p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如，数组 [3,4,5,1,2] 为 [1,2,3,4,5] 的一个旋转，该数组的最小值为1。  </p>
-<ul>
-<li>示例 1：</li>
+                <h1 id="剑指Offer题解大全"><a href="#剑指Offer题解大全" class="headerlink" title="剑指Offer题解大全"></a>剑指Offer题解大全</h1><h2 id="数据结构类"><a href="#数据结构类" class="headerlink" title="数据结构类"></a>数据结构类</h2><h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><ul>
+<li><h4 id="剑指-Offer-06-从尾到头打印链表"><a href="#剑指-Offer-06-从尾到头打印链表" class="headerlink" title="剑指 Offer 06. 从尾到头打印链表"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/solution/si-chong-fang-fa-by-fangtungkeng/">剑指 Offer 06. 从尾到头打印链表</a></h4></li>
 </ul>
-<pre><code>输入：[3,4,5,1,2]
-输出：1</code></pre>
-<ul>
-<li>示例 2：</li>
-</ul>
-<pre><code>输入：[2,2,2,0,1]
-输出：0</code></pre>
-</li>
-</ul>
-<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><ul>
-<li><p>每个数组由两段有序数组组成，且第二段数组的最大值&lt;第一段数组的最大值，所以最小值一定在最右边的数组上。</p>
-</li>
-<li><p>对于有序数组，采用二分查找的思想，numbers[mid]与右侧值numbers[end]作比较</p>
-<ul>
-<li>如果numbers[mid] &gt; numbers[end]，说明mid取到了偏左的位置，此时让numbers[start]取numbers[mid]右边一个值，即start=mid+1</li>
-<li>如果numbers[mid] &lt; numbers[end]，则将end移到mid，即end=mid</li>
-<li>为了防止出现好几个相同的数，例如示例2，如果numbers[mid]==numbers[end]，将end左移，即end–</li>
-</ul>
-</li>
-<li><p>一直循环到start和end相邻或相等</p>
-</li>
-</ul>
-<h4 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h4><ul>
-<li><p>时间复杂度</p>
-<ul>
-<li>O(logn)</li>
-</ul>
-</li>
-<li><p>空间复杂度</p>
-<ul>
-<li>O(1)</li>
-</ul>
-</li>
-</ul>
-<pre class=" language-C++"><code class="language-C++">class Solution &#123;
-public:
-    int minArray(vector<int>& numbers) &#123;
-        int start = 0;
-        int end = numbers.size() - 1;
-        while (start < end) &#123;
-            int mid = start + (end - start) / 2;
-            if (numbers[mid] > numbers[end]) start=mid+1;
-            else if (numbers[mid] < numbers[end]) end=mid;
-            else end--;
-        &#125;
-       return numbers[start];
-    &#125;
-&#125;;</code></pre>
 
             </div>
             <hr/>
@@ -565,7 +515,7 @@ public:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://daemonfg.github.io/2020/08/21/jian-zhi-offer-11-xuan-zhuan-shu-zu-de-zui-xiao-shu-zi/">http://daemonfg.github.io/2020/08/21/jian-zhi-offer-11-xuan-zhuan-shu-zu-de-zui-xiao-shu-zi/</a>
+                    <a href="http://daemonfg.github.io/2020/09/28/jian-zhi-offer-ti-jie-da-quan/">http://daemonfg.github.io/2020/09/28/jian-zhi-offer-ti-jie-da-quan/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -603,8 +553,8 @@ public:
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Search-Algorithm/">
-                                    <span class="chip bg-color">Search Algorithm</span>
+                                <a href="/tags/%E5%88%B7%E9%A2%98/">
+                                    <span class="chip bg-color">刷题</span>
                                 </a>
                             
                         </div>
@@ -909,87 +859,32 @@ public:
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2020/08/24/jian-zhi-offer-53-i-zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-i/">
+                <a href="/2020/09/28/jian-zhi-offer-ti-jie-da-quan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="剑指 Offer 53 - I. 在排序数组中查找数字 I">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="剑指Offer题解大全">
                         
-                        <span class="card-title">剑指 Offer 53 - I. 在排序数组中查找数字 I</span>
+                        <span class="card-title">剑指Offer题解大全</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            剑指 Offer 53 - I. 在排序数组中查找数字 I统计一个数字在排序数组中出现的次数。
+                            剑指Offer题解大全数据结构类链表
+剑指 Offer 06. 从尾到头打印链表
 
-示例 1:
-- 输入: nums = [5,7,7,8,8,10], target = 8
-  输出: 2
 
-示例 2:
-输入: nums =
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-24
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%89%91%E6%8C%87Offer/" class="post-category">
-                                    剑指Offer
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Search-Algorithm/">
-                        <span class="chip bg-color">Search Algorithm</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/08/21/jian-zhi-offer-03-shu-zu-zhong-de-chong-fu-shu-zi/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="剑指Offer 03.数组中的重复数字">
-                        
-                        <span class="card-title">剑指Offer 03.数组中的重复数字</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            剑指 Offer 03. 数组中重复的数字
-找出数组中重复的数字。
-
-在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-28
                             </span>
                         <span class="publish-author">
                             
@@ -1003,11 +898,65 @@ public:
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Search-Algorithm/">
-                        <span class="chip bg-color">Search Algorithm</span>
+                    <a href="/tags/%E5%88%B7%E9%A2%98/">
+                        <span class="chip bg-color">刷题</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Current&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/09/28/jian-zhi-offer-ti-jie-da-quan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="剑指Offer题解大全">
+                        
+                        <span class="card-title">剑指Offer题解大全</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            剑指Offer题解大全数据结构类链表
+剑指 Offer 06. 从尾到头打印链表
+
+
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%91%E6%8C%87Offer/" class="post-category">
+                                    剑指Offer
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%88%B7%E9%A2%98/">
+                        <span class="chip bg-color">刷题</span>
                     </a>
                     
                 </div>
@@ -1167,7 +1116,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total Words:&nbsp;<span
-                class="white-color">1.8k</span>&nbsp; 
+                class="white-color">26</span>&nbsp; 
             
             
             

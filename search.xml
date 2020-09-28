@@ -4,36 +4,11 @@
   
     
     <entry>
-      <title>剑指 Offer 39. 数组中出现次数超过一半的数字</title>
-      <link href="/2020/08/31/jian-zhi-offer-39-shu-zu-zhong-chu-xian-ci-shu-chao-guo-yi-ban-de-shu-zi/"/>
-      <url>/2020/08/31/jian-zhi-offer-39-shu-zu-zhong-chu-xian-ci-shu-chao-guo-yi-ban-de-shu-zi/</url>
+      <title>剑指Offer题解大全</title>
+      <link href="/2020/09/28/jian-zhi-offer-ti-jie-da-quan/"/>
+      <url>/2020/09/28/jian-zhi-offer-ti-jie-da-quan/</url>
       
-        <content type="html"><![CDATA[<h3 id="剑指-Offer-39-数组中出现次数超过一半的数字"><a href="#剑指-Offer-39-数组中出现次数超过一半的数字" class="headerlink" title="剑指 Offer 39. 数组中出现次数超过一半的数字"></a><a href="https://leetcode-cn.com/problems/shu-zu-zhong-chu-xian-ci-shu-chao-guo-yi-ban-de-shu-zi-lcof/">剑指 Offer 39. 数组中出现次数超过一半的数字</a></h3><p>数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。</p><p> 你可以假设数组是非空的，并且给定的数组总是存在多数元素。</p><ul><li><p>示例</p><pre><code>输入: [1, 2, 3, 2, 2, 2, 5, 4, 2]输出: 2</code></pre></li><li><p>限制</p><pre><code>1 &lt;= 数组长度 &lt;= 50000</code></pre></li></ul><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><ul><li>方法一<ul><li>排序以后取中间的值</li></ul></li><li>方法二<ul><li>哈希表</li></ul></li><li>方法三<ul><li><a href="https://mp.weixin.qq.com/s?__biz=MjM5NjIyMjQ4Nw==&mid=2247483952&idx=1&sn=7099f8d70221c6854298f2c9ffdcc6eb&chksm=a6edc148919a485e700e85af33b83202fec8fa63bb7a2a932dc8e1375efc788c1954e2f66eb1&mpshare=1&scene=1&srcid=0831OmJKjFI4YyjOB0la7Hln&sharer_sharetime=1598850806960&sharer_shareid=5ab53476a7cb89b2d672acc6f12336c2&exportkey=AxLjiFaYkfiwL7MBCIbVXb0=&pass_ticket=aDyoYaRZ4qOEcaTU+m0iEWOFMo1gSehqyi9Wl22ykuLufVdquAp/ucVDc9dhevm5&wx_header=0#rd">摩尔投票法</a>求众数<ol><li>对抗阶段：分属两个候选人的票数进行两两对抗抵消</li><li>计数阶段：计算对抗结果中最后留下的候选人票数是否有效</li></ol></li></ul></li></ul><h3 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h3><h4 id="Time-Complexity-Big-O-Notation"><a href="#Time-Complexity-Big-O-Notation" class="headerlink" title="Time Complexity $(Big O Notation)$"></a>Time Complexity $(Big O Notation)$</h4><ul><li>$O(n)$</li></ul><h4 id="Space-Complexity-Big-O-Notation"><a href="#Space-Complexity-Big-O-Notation" class="headerlink" title="Space Complexity $(Big O Notation)$"></a>Space Complexity $(Big O Notation)$</h4><ul><li>$O(1)$</li></ul><h4 id="Code-Boyer–Moore-majority-vote-algorithm"><a href="#Code-Boyer–Moore-majority-vote-algorithm" class="headerlink" title="Code Boyer–Moore majority vote algorithm"></a>Code <code>Boyer–Moore majority vote algorithm</code></h4><pre class=" language-C++"><code class="language-C++">class Solution &#123;public:    int majorityElement(vector<int>& nums) &#123;        int target = 0, count = 0;        for (auto num: nums) &#123;    //类似于python的for num in nums:            if (count == 0) target = num;    //重新指定候选人            if (target == num) count++;            else count--;        &#125;    return target;    &#125;&#125;;</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> 剑指Offer </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Boyer–Moore majority vote algorithm </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>剑指 Offer 21. 调整数组顺序使奇数位于偶数前面</title>
-      <link href="/2020/08/27/jian-zhi-offer-21-diao-zheng-shu-zu-shun-xu-shi-qi-shu-wei-yu-ou-shu-qian-mian/"/>
-      <url>/2020/08/27/jian-zhi-offer-21-diao-zheng-shu-zu-shun-xu-shi-qi-shu-wei-yu-ou-shu-qian-mian/</url>
-      
-        <content type="html"><![CDATA[<h3 id="剑指-Offer-21-调整数组顺序使奇数位于偶数前面"><a href="#剑指-Offer-21-调整数组顺序使奇数位于偶数前面" class="headerlink" title="剑指 Offer 21. 调整数组顺序使奇数位于偶数前面"></a><a href="https://leetcode-cn.com/problems/diao-zheng-shu-zu-shun-xu-shi-qi-shu-wei-yu-ou-shu-qian-mian-lcof/">剑指 Offer 21. 调整数组顺序使奇数位于偶数前面</a></h3><p>输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数位于数组的前半部分，所有偶数位于数组的后半部分。</p><ul><li><p>示例：</p><pre><code>输入：nums = [1,2,3,4]输出：[1,3,2,4] 注：[3,1,2,4] 也是正确的答案之一。</code></pre></li><li><p>提示：</p><pre><code>1 &lt;= nums.length &lt;= 500001 &lt;= nums[i] &lt;= 10000</code></pre></li></ul><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><ol><li>对撞指针left控制奇数，right控制偶数</li><li>如果nums[left]是奇数，left右移</li><li>同理right左移</li><li>否则交换nums[left]和nums[right]</li></ol><h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><h5 id="Time-Complexity"><a href="#Time-Complexity" class="headerlink" title="Time Complexity"></a>Time Complexity</h5><ul><li>$O(N)$</li></ul><h5 id="Space-Complexity"><a href="#Space-Complexity" class="headerlink" title="Space Complexity"></a>Space Complexity</h5><ul><li>$O(1)$</li></ul><h5 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h5><pre class=" language-C++"><code class="language-C++">class Solution &#123;public:    vector<int> exchange(vector<int>& nums) &#123;        int left = 0, right = nums.size() - 1;        while (left < right) &#123;            if ((nums[left] & 1) != 0) &#123;    //奇数的二进制数的最后一位永远是 1，与 1 按位且只会得到 1，偶数相反                left+=1;                 continue;                &#125;            if ((nums[right] & 1) != 1) &#123;                right-=1;                 continue;                &#125;            swap(nums[left++], nums[right--]);    //先使用再++        &#125;        return nums;    &#125;&#125;;</code></pre>]]></content>
+        <content type="html"><![CDATA[<h1 id="剑指Offer题解大全"><a href="#剑指Offer题解大全" class="headerlink" title="剑指Offer题解大全"></a>剑指Offer题解大全</h1><h2 id="数据结构类"><a href="#数据结构类" class="headerlink" title="数据结构类"></a>数据结构类</h2><h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><ul><li><h4 id="剑指-Offer-06-从尾到头打印链表"><a href="#剑指-Offer-06-从尾到头打印链表" class="headerlink" title="剑指 Offer 06. 从尾到头打印链表"></a><a href="https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/solution/si-chong-fang-fa-by-fangtungkeng/">剑指 Offer 06. 从尾到头打印链表</a></h4></li></ul>]]></content>
       
       
       <categories>
@@ -45,132 +20,7 @@
       
         <tags>
             
-            <tag> 对撞指针 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>剑指 Offer 05. 替换空格</title>
-      <link href="/2020/08/26/jian-zhi-offer-05-ti-huan-kong-ge/"/>
-      <url>/2020/08/26/jian-zhi-offer-05-ti-huan-kong-ge/</url>
-      
-        <content type="html"><![CDATA[<h3 id="剑指-Offer-05-替换空格"><a href="#剑指-Offer-05-替换空格" class="headerlink" title="剑指 Offer 05. 替换空格"></a><a href="https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof/">剑指 Offer 05. 替换空格</a></h3><p>请实现一个函数，把字符串 s 中的每个空格替换成”%20”。</p><ul><li><p>示例</p><pre><code>输入：s = &quot;We are happy.&quot;输出：&quot;We%20are%20happy.&quot;</code></pre></li><li><p>限制：</p><pre><code>0 &lt;= s 的长度 &lt;= 10000</code></pre></li></ul><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><ul><li>统计空格数count</li><li>用resize对字符串进行扩容</li><li>c从后往前，双指针查找位置，并替换</li></ul><h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><h5 id="Time-Complexity-Big-O-Notation"><a href="#Time-Complexity-Big-O-Notation" class="headerlink" title="Time Complexity $(Big O Notation)$"></a>Time Complexity $(Big O Notation)$</h5><ul><li>$O(n)$</li></ul><h5 id="Space-Complexity-Big-O-Notation"><a href="#Space-Complexity-Big-O-Notation" class="headerlink" title="Space Complexity $(Big O Notation)$"></a>Space Complexity $(Big O Notation)$</h5><ul><li>$O(1)$</li></ul><h5 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h5><pre class=" language-C++"><code class="language-C++">class Solution &#123;public:    string replaceSpace(string s) &#123;        int count = 0;            int oldSize = s.size();        for (int i = 0; i < oldSize; i++) &#123;            if (s[i] == ' ') count++;    //统计空格数量        &#125;        s.resize(s.size() + count * 2);        //字符串扩容        int newSize = s.size();        for (int i = oldSize - 1, j = newSize - 1;i < j;i--,j--) &#123;            if (s[i] != ' ') s[j] = s[i];    //旧位置移到新位置            else &#123;                s[j] = '0';                s[j-1] =  '2';                s[j-2] = '%';                j -= 2;        //*            &#125;        &#125;        return s;    &#125;&#125;;</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> 剑指Offer </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> String </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>剑指 Offer 53 - II. 0～n-1中缺失的数字</title>
-      <link href="/2020/08/24/jian-zhi-offer-53-ii-0-n-1-zhong-que-shi-de-shu-zi/"/>
-      <url>/2020/08/24/jian-zhi-offer-53-ii-0-n-1-zhong-que-shi-de-shu-zi/</url>
-      
-        <content type="html"><![CDATA[<h4 id="剑指-Offer-53-II-0～n-1中缺失的数字"><a href="#剑指-Offer-53-II-0～n-1中缺失的数字" class="headerlink" title="剑指 Offer 53 - II. 0～n-1中缺失的数字"></a><a href="https://leetcode-cn.com/problems/que-shi-de-shu-zi-lcof/">剑指 Offer 53 - II. 0～n-1中缺失的数字</a></h4><p>一个长度为n-1的递增排序数组中的所有数字都是唯一的，并且每个数字都在范围0～n-1之内。在范围0～n-1内的n个数字中有且只有一个数字不在该数组中，请找出这个数字。</p><ul><li><p>示例1</p><pre><code>输入: [0,1,3]输出: 2</code></pre></li><li><p>示例2</p><pre><code>输入: [0,1,2,3,4,5,6,7,9]输出: 8</code></pre></li><li><p>限制</p><pre><code>1 &lt;= 数组长度 &lt;= 10000</code></pre></li></ul><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><ul><li>有序考虑二分查找</li><li>观察得到缺失数字左侧nums[mid]==mid，令left=mid+1</li><li>否则缺失数字在mid左侧，令right=mid</li><li>return值应该是在最终值的左侧，即left</li></ul><h4 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h4><ul><li><p>时间复杂度</p><ul><li>O(logn)</li></ul></li><li><p>空间复杂度</p><ul><li>O(1)</li></ul><pre class=" language-C++"><code class="language-C++">class Solution &#123;public:    int missingNumber(vector<int>& nums) &#123;        int left = 0;        int right = nums.size();        while (left < right) &#123;            int mid = left + (right -left) / 2;            if (nums[mid] == mid) left = mid + 1;            else right = mid;        &#125;        return left;    &#125;&#125;;</code></pre></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 剑指Offer </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Search Algorithm </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>剑指 Offer 53 - I. 在排序数组中查找数字 I</title>
-      <link href="/2020/08/24/jian-zhi-offer-53-i-zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-i/"/>
-      <url>/2020/08/24/jian-zhi-offer-53-i-zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-i/</url>
-      
-        <content type="html"><![CDATA[<h4 id="剑指-Offer-53-I-在排序数组中查找数字-I"><a href="#剑指-Offer-53-I-在排序数组中查找数字-I" class="headerlink" title="剑指 Offer 53 - I. 在排序数组中查找数字 I"></a><a href="https://leetcode-cn.com/problems/zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-lcof/">剑指 Offer 53 - I. 在排序数组中查找数字 I</a></h4><p>统计一个数字在排序数组中出现的次数。</p><ul><li><p>示例 1:</p><pre><code>- 输入: nums = [5,7,7,8,8,10], target = 8  输出: 2</code></pre></li><li><p>示例 2:</p><pre><code>输入: nums = [5,7,7,8,8,10], target = 6输出: 0</code></pre></li><li><p>限制：</p><pre><code>0 &lt;= 数组长度 &lt;= 50000</code></pre></li></ul><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><ul><li>有序数组首选二分查找</li><li>因为要统计次数，所以要考虑target重复</li><li>首先二分查找到target，再以target为中心，左右统计相同的个数</li></ul><h4 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h4><ul><li><p>时间复杂度</p><ul><li>O(logn)</li></ul></li><li><p>空间复杂度</p><ul><li>O(1)</li></ul></li></ul><pre class=" language-C++"><code class="language-C++">class Solution &#123;public:    int search(vector<int>& nums, int target) &#123;        int start = 0;        int end = nums.size() - 1;        int p = -1;        while (start <= end) &#123;            int mid = start + (end - start) / 2;    //不写(start+end)/ 2是为了防止数字过大带来加法益处            if (nums[mid] == target) &#123;                p = mid;                break;            &#125; else if (nums[mid] > target) end = mid - 1;            else start = mid + 1;        &#125;        if (p == -1) return 0;        int low = p;        int high = p;        while ( low >= 0 && nums[low] == target) low-=1;    //此处如果写成(nums[low] == target &&  low >= 0) 会报越界，下一行同理        while ( high < nums.size() && nums[high] == target) high+=1;        return high - low -1;    &#125;&#125;;</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> 剑指Offer </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Search Algorithm </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>剑指 Offer 11.旋转数组的最小数字</title>
-      <link href="/2020/08/21/jian-zhi-offer-11-xuan-zhuan-shu-zu-de-zui-xiao-shu-zi/"/>
-      <url>/2020/08/21/jian-zhi-offer-11-xuan-zhuan-shu-zu-de-zui-xiao-shu-zi/</url>
-      
-        <content type="html"><![CDATA[<h3 id="剑指-Offer-11-旋转数组的最小数字"><a href="#剑指-Offer-11-旋转数组的最小数字" class="headerlink" title="剑指 Offer 11.旋转数组的最小数字"></a><a href="https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/">剑指 Offer 11.旋转数组的最小数字</a></h3><ul><li><p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如，数组 [3,4,5,1,2] 为 [1,2,3,4,5] 的一个旋转，该数组的最小值为1。  </p><ul><li>示例 1：</li></ul><pre><code>输入：[3,4,5,1,2]输出：1</code></pre><ul><li>示例 2：</li></ul><pre><code>输入：[2,2,2,0,1]输出：0</code></pre></li></ul><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><ul><li><p>每个数组由两段有序数组组成，且第二段数组的最大值&lt;第一段数组的最大值，所以最小值一定在最右边的数组上。</p></li><li><p>对于有序数组，采用二分查找的思想，numbers[mid]与右侧值numbers[end]作比较</p><ul><li>如果numbers[mid] &gt; numbers[end]，说明mid取到了偏左的位置，此时让numbers[start]取numbers[mid]右边一个值，即start=mid+1</li><li>如果numbers[mid] &lt; numbers[end]，则将end移到mid，即end=mid</li><li>为了防止出现好几个相同的数，例如示例2，如果numbers[mid]==numbers[end]，将end左移，即end–</li></ul></li><li><p>一直循环到start和end相邻或相等</p></li></ul><h4 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h4><ul><li><p>时间复杂度</p><ul><li>O(logn)</li></ul></li><li><p>空间复杂度</p><ul><li>O(1)</li></ul></li></ul><pre class=" language-C++"><code class="language-C++">class Solution &#123;public:    int minArray(vector<int>& numbers) &#123;        int start = 0;        int end = numbers.size() - 1;        while (start < end) &#123;            int mid = start + (end - start) / 2;            if (numbers[mid] > numbers[end]) start=mid+1;            else if (numbers[mid] < numbers[end]) end=mid;            else end--;        &#125;       return numbers[start];    &#125;&#125;;</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> 剑指Offer </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Search Algorithm </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>剑指Offer 03.数组中的重复数字</title>
-      <link href="/2020/08/21/jian-zhi-offer-03-shu-zu-zhong-de-chong-fu-shu-zi/"/>
-      <url>/2020/08/21/jian-zhi-offer-03-shu-zu-zhong-de-chong-fu-shu-zi/</url>
-      
-        <content type="html"><![CDATA[<h3 id="剑指-Offer-03-数组中重复的数字"><a href="#剑指-Offer-03-数组中重复的数字" class="headerlink" title="剑指 Offer 03. 数组中重复的数字"></a><a href="https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/">剑指 Offer 03. 数组中重复的数字</a></h3><ul><li><p>找出数组中重复的数字。</p><ul><li>在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。</li><li><strong>示例 1：</strong></li></ul><pre><code>输入：[2, 3, 1, 0, 2, 5, 3]输出：2 或 3 </code></pre><ul><li><strong>限制：</strong></li></ul><pre><code>2 &lt;= n &lt;= 100000</code></pre></li></ul><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><ul><li>如果nums[i] != i，位置i处放得不是数字i，则利用swap()交换的方法将i换到nums[i]。</li><li>但如果位置nums[i]上已经等于nums[i]，则nums[i]就是重复数字。</li><li>如果nums[i]位置上第一次等于i，跳过。</li></ul><h4 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h4><ul><li><p>时间复杂度</p><ul><li>O(n)</li></ul></li><li><p>空间复杂度</p><ul><li>O(1)</li></ul></li></ul><pre class=" language-c++"><code class="language-c++">class Solution &#123;public:    int findRepeatNumber(vector<int>& nums) &#123;        for(int i=0; i < nums.size(); i++) &#123;            if (nums[i]==i) continue;            if (nums[nums[i]] == nums[i]) return nums[i];            swap(nums[i],nums[nums[i]]);        &#125;        return 0;    &#125;&#125;;</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> 剑指Offer </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Search Algorithm </tag>
+            <tag> 刷题 </tag>
             
         </tags>
       
