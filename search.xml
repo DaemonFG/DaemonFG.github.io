@@ -4,19 +4,6 @@
   
     
     <entry>
-      <title>开放道路目的地POI预测实践</title>
-      <link href="/archives/4d422e54.html"/>
-      <url>/archives/4d422e54.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>深度学习在无人车ETA应用的探索与实践</title>
       <link href="/archives/86ff6417.html"/>
       <url>/archives/86ff6417.html</url>
@@ -24,6 +11,18 @@
         <content type="html"><![CDATA[]]></content>
       
       
+      <categories>
+          
+          <category> LBS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LSTM </tag>
+            
+        </tags>
       
     </entry>
     
@@ -47,6 +46,31 @@
         <tags>
             
             <tag> 刷题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>开放道路目的地POI预测实践</title>
+      <link href="/archives/4d422e54.html"/>
+      <url>/archives/4d422e54.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> LBS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Bayesian Network </tag>
             
         </tags>
       
