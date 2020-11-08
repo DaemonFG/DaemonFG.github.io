@@ -15,10 +15,13 @@ timezone: ''
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://daemonfg.github.io
 root: /
-permalink: :year/:month/:day/:title/
+permalink: archives/:abbrlink.html
+abbrlink:
+  alg: crc32  # 算法：crc16(default) and crc32
+  rep: hex    # 进制：dec(default) and hex
 permalink_defaults:
 pretty_urls:
-  trailing_index: true # Set to false to remove trailing 'index.html' from _malinks
+  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
 
 # Directory
@@ -45,7 +48,7 @@ post_asset_folder: false
 relative_link: false
 future: true
 highlight:
-  enable: false
+  enable: true
   line_number: true
   auto_detect: false
   tab_replace: ''
@@ -61,6 +64,17 @@ prism_plugin:
   theme: 'tomorrow'
   line_number: false    # default false
   custom_css:
+
+markdown_it_plus:
+    highlight: true
+    html: true
+    xhtmlOut: true
+    breaks: true
+    langPrefix:
+    linkify: true
+    typographer:
+    quotes: “”‘’
+    pre_class: highlight
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
