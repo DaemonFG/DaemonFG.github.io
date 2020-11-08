@@ -111,6 +111,34 @@
   </entry>
   
   <entry>
+    <title>模型评估方法</title>
+    <link href="http://daemonfg.github.io/archives/f8522835.html"/>
+    <id>http://daemonfg.github.io/archives/f8522835.html</id>
+    <published>2019-11-08T03:56:27.000Z</published>
+    <updated>2020-11-08T04:01:05.372Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在机器学习和深度学习的过程中，工程师完成模型训练，必须通过模型评估才能上线，那么在什么场景下该使用怎样的模型评估方法呢？本文奖一一介绍。&lt;/p&gt;
+&lt;p&gt;首先明确一下几个表示(以二分类为例)：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;True</summary>
+        
+      
+    
+    
+    
+    <category term="Machine Learning" scheme="http://daemonfg.github.io/categories/Machine-Learning/"/>
+    
+    
+    <category term="Model Evaluation" scheme="http://daemonfg.github.io/tags/Model-Evaluation/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Kaggle Data Mining实践</title>
     <link href="http://daemonfg.github.io/archives/8fb9830a.html"/>
     <id>http://daemonfg.github.io/archives/8fb9830a.html</id>
