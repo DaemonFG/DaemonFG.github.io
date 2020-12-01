@@ -47,7 +47,7 @@
     <link href="http://daemonfg.github.io/archives/86ff6417.html"/>
     <id>http://daemonfg.github.io/archives/86ff6417.html</id>
     <published>2020-03-09T09:19:26.000Z</published>
-    <updated>2020-10-09T09:24:08.555Z</updated>
+    <updated>2020-12-01T02:43:21.736Z</updated>
     
     
     
@@ -82,6 +82,31 @@
     
     
     <category term="Algorithm" scheme="http://daemonfg.github.io/tags/Algorithm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>简述信息抽取特征工程</title>
+    <link href="http://daemonfg.github.io/archives/9e518c4a.html"/>
+    <id>http://daemonfg.github.io/archives/9e518c4a.html</id>
+    <published>2019-12-01T02:42:54.000Z</published>
+    <updated>2020-12-01T02:48:16.947Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;常见的特征提取方法&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#常见的特征提取方法&quot;&gt;&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="Information Extraction" scheme="http://daemonfg.github.io/categories/Information-Extraction/"/>
+    
+    
+    <category term="Feature Engineering" scheme="http://daemonfg.github.io/tags/Feature-Engineering/"/>
     
   </entry>
   

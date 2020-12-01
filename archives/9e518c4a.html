@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="深度学习在无人车ETA应用的探索与实践, Fang-tung Keng">
+    <meta name="keywords" content="简述信息抽取特征工程, Fang-tung Keng">
     <meta name="description" content="Algorithms | Photography | Self-Management">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>深度学习在无人车ETA应用的探索与实践 | Fang-tung Keng</title>
+    <title>简述信息抽取特征工程 | Fang-tung Keng</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -315,12 +315,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">深度学习在无人车ETA应用的探索与实践</h1>
+                    <h1 class="description center-align post-title">简述信息抽取特征工程</h1>
                 </div>
             </div>
         </div>
@@ -437,8 +437,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/LSTM/">
-                                <span class="chip bg-color">LSTM</span>
+                            <a href="/tags/Feature-Engineering/">
+                                <span class="chip bg-color">Feature Engineering</span>
                             </a>
                         
                     </div>
@@ -449,8 +449,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/LBS/" class="post-category">
-                                LBS
+                            <a href="/categories/Information-Extraction/" class="post-category">
+                                Information Extraction
                             </a>
                         
                     </div>
@@ -462,7 +462,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-03-09
+                    2019-12-01
                 </div>
                 
 
@@ -471,7 +471,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    0
+                    285
                 </div>
                 
 
@@ -493,7 +493,86 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h3 id="常见的特征提取方法"><a class="markdownIt-Anchor" href="#常见的特征提取方法"></a> 常见的特征提取方法</h3>
+<p>在NLP任务中，英文特征工程能提取的特征往往比中文更多更复杂，所以本文以以下句子中的<strong>Colin</strong>为例子，从英文出发来讨论各种姿势的特征工程方法。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The professor Colin proposed a moodel for NER in 1999.</span><br></pre></td></tr></table></figure>
+<ol>
+<li>
+<p>bag-of-word features</p>
+<ul>
+<li>当前词：Colin</li>
+<li>前后词：professor, proposed</li>
+<li>前前、后后词：the, model</li>
+<li>Bi-gram：professor Colin, Colin proposed</li>
+</ul>
+</li>
+<li>
+<p>词性feature</p>
+<ul>
+<li>当前词：名词</li>
+<li>前后词：名词、动词</li>
+<li>前前、后后词：冠词、名词</li>
+</ul>
+</li>
+<li>
+<p>前缀&amp;后缀</p>
+<ul>
+<li>当前词：Co, in</li>
+<li>前后词：pr, or, pr, ed</li>
+<li>前前、后后词：–</li>
+</ul>
+</li>
+<li>
+<p>当前词的特性</p>
+<ul>
+<li>词长</li>
+<li>含有多少个大写字母</li>
+<li>是否大写开头</li>
+<li>是否包含“-”</li>
+<li>是否包含数字</li>
+<li>是否包含特定后缀</li>
+</ul>
+</li>
+<li>
+<p>stemming之后再bag-of-word features</p>
+</li>
+</ol>
+<h3 id="特征编码feature-encoding"><a class="markdownIt-Anchor" href="#特征编码feature-encoding"></a> 特征编码Feature Encoding</h3>
+<h4 id="常见的特征种类"><a class="markdownIt-Anchor" href="#常见的特征种类"></a> 常见的特征种类</h4>
+<ol>
+<li>
+<p>分类型Categorical Feature</p>
+<ul>
+<li>one-hot encoding</li>
+</ul>
+</li>
+<li>
+<p>连续型Continues Feature</p>
+<ul>
+<li>
+<p>直接用</p>
+<ol>
+<li>0~1</li>
+<li>高斯分布</li>
+</ol>
+</li>
+<li>
+<p>离散化</p>
+<ul>
+<li>非线性化，例如金融评分卡，例如逻辑回归非线性效果</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>有序型Ordinal Feature(只能了解顺序，不能理解差别)</p>
+<ul>
+<li>直接用</li>
+<li>当分类型用</li>
+</ul>
+</li>
+</ol>
+
             </div>
             <hr/>
 
@@ -518,7 +597,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://daemonfg.github.io/archives/86ff6417.html">http://daemonfg.github.io/archives/86ff6417.html</a>
+                    <a href="http://daemonfg.github.io/archives/9e518c4a.html">http://daemonfg.github.io/archives/9e518c4a.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -556,8 +635,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/LSTM/">
-                                    <span class="chip bg-color">LSTM</span>
+                                <a href="/tags/Feature-Engineering/">
+                                    <span class="chip bg-color">Feature Engineering</span>
                                 </a>
                             
                         </div>
@@ -866,63 +945,6 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/archives/95786538.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Leetcode-SQL题解大全">
-                        
-                        <span class="card-title">Leetcode-SQL题解大全</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                             Leetcode-SQL题解大全
- Easy
- 175. 组合两个表
- 176. 第二高的薪水
- 181. 超过经理收入的员工
- 182. 查找重复的电子邮箱
- 183. 从不订购的客户
- 196. 删除重复的电子邮箱
- 197. 上升的
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-20
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Leetcode/" class="post-category">
-                                    Leetcode
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/SQL/">
-                        <span class="chip bg-color">SQL</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
                 <a href="/archives/8f4474c7.html">
                     <div class="card-image">
                         
@@ -946,9 +968,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-28
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-28
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -966,6 +988,57 @@
                     
                     <a href="/tags/Algorithm/">
                         <span class="chip bg-color">Algorithm</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/archives/4d422e54.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="开放道路目的地POI预测实践">
+                        
+                        <span class="card-title">开放道路目的地POI预测实践</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                             背景
+随着越来越多的无人驾驶项目落地，无人驾驶网约车走上街头，开放道路目的地POI预测开始在落地项目中崭露头角。
+从产品的角度看，用户打开网约车软件，在还未输入的情况下，猜测用户的想去的目的地（POI）并以TIPS的形式直接进行提示，该功
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/LBS/" class="post-category">
+                                    LBS
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Bayesian-Network/">
+                        <span class="chip bg-color">Bayesian Network</span>
                     </a>
                     
                 </div>
