@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="简述信息抽取特征工程, Fang-tung Keng">
+    <meta name="keywords" content="NER实战之MajorityVoting, Fang-tung Keng">
     <meta name="description" content="Algorithms | Photography | Self-Management">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>简述信息抽取特征工程 | Fang-tung Keng</title>
+    <title>NER实战之MajorityVoting | Fang-tung Keng</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -315,12 +315,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">简述信息抽取特征工程</h1>
+                    <h1 class="description center-align post-title">NER实战之MajorityVoting</h1>
                 </div>
             </div>
         </div>
@@ -437,8 +437,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Feature-Engineering/">
-                                <span class="chip bg-color">Feature Engineering</span>
+                            <a href="/tags/NER/">
+                                <span class="chip bg-color">NER</span>
                             </a>
                         
                     </div>
@@ -462,7 +462,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-12-01
+                    2020-01-07
                 </div>
                 
 
@@ -471,14 +471,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    285
+                    596
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    3 Min
                 </div>
                 
 
@@ -493,85 +493,154 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="常见的特征提取方法"><a class="markdownIt-Anchor" href="#常见的特征提取方法"></a> 常见的特征提取方法</h3>
-<p>在NLP任务中，英文特征工程能提取的特征往往比中文更多更复杂，所以本文以以下句子中的<strong>Colin</strong>为例子，从英文出发来讨论各种姿势的特征工程方法。</p>
-<p><code>The professor Colin proposed a moodel for NER in 1999.</code></p>
+                <h3 id="majority-voting"><a class="markdownIt-Anchor" href="#majority-voting"></a> Majority Voting</h3>
 <ol>
-<li>
-<p>bag-of-word features</p>
-<ul>
-<li>当前词：Colin</li>
-<li>前后词：professor, proposed</li>
-<li>前前、后后词：the, model</li>
-<li>Bi-gram：professor Colin, Colin proposed</li>
-</ul>
-</li>
-<li>
-<p>词性feature</p>
-<ul>
-<li>当前词：名词</li>
-<li>前后词：名词、动词</li>
-<li>前前、后后词：冠词、名词</li>
-</ul>
-</li>
-<li>
-<p>前缀&amp;后缀</p>
-<ul>
-<li>当前词：Co, in</li>
-<li>前后词：pr, or, pr, ed</li>
-<li>前前、后后词：–</li>
-</ul>
-</li>
-<li>
-<p>当前词的特性</p>
-<ul>
-<li>词长</li>
-<li>含有多少个大写字母</li>
-<li>是否大写开头</li>
-<li>是否包含“-”</li>
-<li>是否包含数字</li>
-<li>是否包含特定后缀</li>
-</ul>
-</li>
-<li>
-<p>stemming之后再bag-of-word features</p>
-</li>
+<li>统计一个单词最有可能被分成的实体类别</li>
+<li>给定一个新单词的时候，把它分类成这个类别</li>
 </ol>
-<h3 id="特征编码feature-encoding"><a class="markdownIt-Anchor" href="#特征编码feature-encoding"></a> 特征编码Feature Encoding</h3>
-<h4 id="常见的特征种类"><a class="markdownIt-Anchor" href="#常见的特征种类"></a> 常见的特征种类</h4>
+<h4 id="导入数据"><a class="markdownIt-Anchor" href="#导入数据"></a> 导入数据</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">data = pd.read_csv(<span class="string">&quot;ner_dataset.csv&quot;</span>, encoding=<span class="string">&quot;latin1&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="空值处理"><a class="markdownIt-Anchor" href="#空值处理"></a> 空值处理</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = data.fillna(method=<span class="string">&quot;ffill&quot;</span>)</span><br><span class="line">data.tail(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sentence #</th>
+      <th>Word</th>
+      <th>POS</th>
+      <th>Tag</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1048565</th>
+      <td>Sentence: 47958</td>
+      <td>impact</td>
+      <td>NN</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <th>1048566</th>
+      <td>Sentence: 47958</td>
+      <td>.</td>
+      <td>.</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <th>1048567</th>
+      <td>Sentence: 47959</td>
+      <td>Indian</td>
+      <td>JJ</td>
+      <td>B-gpe</td>
+    </tr>
+    <tr>
+      <th>1048568</th>
+      <td>Sentence: 47959</td>
+      <td>forces</td>
+      <td>NNS</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <th>1048569</th>
+      <td>Sentence: 47959</td>
+      <td>said</td>
+      <td>VBD</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <th>1048570</th>
+      <td>Sentence: 47959</td>
+      <td>they</td>
+      <td>PRP</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <th>1048571</th>
+      <td>Sentence: 47959</td>
+      <td>responded</td>
+      <td>VBD</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <th>1048572</th>
+      <td>Sentence: 47959</td>
+      <td>to</td>
+      <td>TO</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <th>1048573</th>
+      <td>Sentence: 47959</td>
+      <td>the</td>
+      <td>DT</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <th>1048574</th>
+      <td>Sentence: 47959</td>
+      <td>attack</td>
+      <td>NN</td>
+      <td>O</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h4 id="单词数量统计"><a class="markdownIt-Anchor" href="#单词数量统计"></a> 单词数量统计</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">words = list(set(data[<span class="string">&quot;Word&quot;</span>].values))</span><br><span class="line">n_words = len(words)</span><br><span class="line">n_words</span><br></pre></td></tr></table></figure>
+<pre><code>35178
+</code></pre>
+<h4 id="通过scikit-learn自定义加入pipeline的变换编写ner算法"><a class="markdownIt-Anchor" href="#通过scikit-learn自定义加入pipeline的变换编写ner算法"></a> 通过scikit-learn自定义加入Pipeline的变换编写NER算法</h4>
 <ol>
-<li>
-<p>分类型Categorical Feature</p>
-<ul>
-<li>one-hot encoding</li>
-</ul>
-</li>
-<li>
-<p>连续型Continues Feature</p>
-<ul>
-<li>
-<p>直接用</p>
-<ol>
-<li>0~1</li>
-<li>高斯分布</li>
+<li>sklearn.base中的两个类BaseEstimator和TransformerMixin</li>
+<li>定义自定义变换继承上述两个类，如class CustomFunction(BaseEstimator,TransformerMixin)</li>
+<li>在自定义变换中定义fit和transform函数</li>
 </ol>
-</li>
-<li>
-<p>离散化</p>
-<ul>
-<li>非线性化，例如金融评分卡，例如逻辑回归非线性效果</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>有序型Ordinal Feature(只能了解顺序，不能理解差别)</p>
-<ul>
-<li>直接用</li>
-<li>当分类型用</li>
-</ul>
-</li>
-</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.base <span class="keyword">import</span> BaseEstimator,TransformerMixin</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MajorityVotingTagger</span>(<span class="params">BaseEstimator,TransformerMixin</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span>(<span class="params">self, X, y</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        X: list of words</span></span><br><span class="line"><span class="string">        y: list of tags(实体类别)</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        word2cnt = &#123;&#125;</span><br><span class="line">        self.tags = []</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> x, t <span class="keyword">in</span> zip(X, y):</span><br><span class="line">            <span class="keyword">if</span> t <span class="keyword">not</span> <span class="keyword">in</span> self.tags:</span><br><span class="line">                self.tags.append(t)</span><br><span class="line">            <span class="keyword">if</span> x <span class="keyword">in</span> word2cnt:</span><br><span class="line">                <span class="keyword">if</span> t <span class="keyword">in</span> word2cnt[x]:</span><br><span class="line">                    word2cnt[x][t] += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    word2cnt[x][t] = <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                word2cnt[x] = &#123;t: <span class="number">1</span>&#125;</span><br><span class="line">        self.mjvote = &#123;&#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> k, d <span class="keyword">in</span> word2cnt.items():</span><br><span class="line">            self.mjvote[k] = max(d, key=d.get)</span><br><span class="line">            </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict</span>(<span class="params">self, X, y=None</span>):</span></span><br><span class="line">        <span class="comment"># x is user input</span></span><br><span class="line">        <span class="keyword">return</span> [self.mjvote.get(x, <span class="string">&#x27;O&#x27;</span>) <span class="keyword">for</span> x <span class="keyword">in</span> X]</span><br></pre></td></tr></table></figure>
+<h4 id="提取特征"><a class="markdownIt-Anchor" href="#提取特征"></a> 提取特征</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">words = data[<span class="string">&quot;Word&quot;</span>].values.tolist()</span><br><span class="line">tags = data[<span class="string">&quot;Tag&quot;</span>].values.tolist()</span><br><span class="line">len(words), len(tags)</span><br></pre></td></tr></table></figure>
+<pre><code>(1048575, 1048575)
+</code></pre>
+<h4 id="执行预测"><a class="markdownIt-Anchor" href="#执行预测"></a> 执行预测</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_val_predict</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> classification_report</span><br><span class="line">pred = cross_val_predict(estimator=MajorityVotingTagger(), X=words, y=tags, cv=<span class="number">5</span>) <span class="comment"># 5折交叉验证</span></span><br><span class="line">report = classification_report(y_pred=pred, y_true=tags)</span><br><span class="line">print(report)</span><br></pre></td></tr></table></figure>
+<pre><code>              precision    recall  f1-score   support
+
+       B-art       0.20      0.05      0.09       402
+       B-eve       0.54      0.25      0.34       308
+       B-geo       0.78      0.85      0.81     37644
+       B-gpe       0.94      0.93      0.94     15870
+       B-nat       0.42      0.28      0.33       201
+       B-org       0.67      0.49      0.56     20143
+       B-per       0.78      0.65      0.71     16990
+       B-tim       0.87      0.77      0.82     20333
+       I-art       0.04      0.01      0.01       297
+       I-eve       0.39      0.12      0.18       253
+       I-geo       0.73      0.58      0.65      7414
+       I-gpe       0.62      0.45      0.52       198
+       I-nat       0.00      0.00      0.00        51
+       I-org       0.69      0.53      0.60     16784
+       I-per       0.73      0.65      0.69     17251
+       I-tim       0.58      0.13      0.21      6528
+           O       0.97      0.99      0.98    887908
+
+    accuracy                           0.95   1048575
+   macro avg       0.59      0.45      0.50   1048575
+weighted avg       0.94      0.95      0.94   1048575
+</code></pre>
 
             </div>
             <hr/>
@@ -597,7 +666,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://daemonfg.github.io/archives/9e518c4a.html">http://daemonfg.github.io/archives/9e518c4a.html</a>
+                    <a href="http://daemonfg.github.io/archives/26f43d84.html">http://daemonfg.github.io/archives/26f43d84.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -635,8 +704,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Feature-Engineering/">
-                                    <span class="chip bg-color">Feature Engineering</span>
+                                <a href="/tags/NER/">
+                                    <span class="chip bg-color">NER</span>
                                 </a>
                             
                         </div>
@@ -945,31 +1014,83 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/archives/26f43d84.html">
+                <a href="/archives/8f4474c7.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="NER实战之MajorityVoting">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="剑指Offer题解大全">
                         
-                        <span class="card-title">NER实战之MajorityVoting</span>
+                        <span class="card-title">剑指Offer题解大全</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                             Majority Voting
-
-统计一个单词最有可能被分成的实体类别
-给定一个新单词的时候，把它分类成这个类别
-
- 导入数据
-123import pandas as pdimport numpy as npdata = pd.read_
+                             剑指Offer题解大全
+ 数据结构类
+ 链表
+ 剑指 Offer 06. 从尾到头打印链表
+ 剑指 Offer 18. 删除链表的节点
+ 剑指 Offer 22. 链表中倒数第k个节点
+ 剑指 Offer 24. 反转链表
+ 剑指 Off
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-07
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-28
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%91%E6%8C%87Offer/" class="post-category">
+                                    剑指Offer
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Algorithm/">
+                        <span class="chip bg-color">Algorithm</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/archives/9e518c4a.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="简述信息抽取特征工程">
+                        
+                        <span class="card-title">简述信息抽取特征工程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                             常见的特征提取方法
+在NLP任务中，英文特征工程能提取的特征往往比中文更多更复杂，所以本文以以下句子中的Colin为例子，从英文出发来讨论各种姿势的特征工程方法。
+The professor Colin proposed a moodel
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -985,59 +1106,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/NER/">
-                        <span class="chip bg-color">NER</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/archives/4d422e54.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="开放道路目的地POI预测实践">
-                        
-                        <span class="card-title">开放道路目的地POI预测实践</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                             背景
-随着越来越多的无人驾驶项目落地，无人驾驶网约车走上街头，开放道路目的地POI预测开始在落地项目中崭露头角。
-从产品的角度看，用户打开网约车软件，在还未输入的情况下，猜测用户的想去的目的地（POI）并以TIPS的形式直接进行提示，该功
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-09
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/LBS/" class="post-category">
-                                    LBS
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Bayesian-Network/">
-                        <span class="chip bg-color">Bayesian Network</span>
+                    <a href="/tags/Feature-Engineering/">
+                        <span class="chip bg-color">Feature Engineering</span>
                     </a>
                     
                 </div>
